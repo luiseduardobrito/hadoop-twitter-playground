@@ -60,5 +60,6 @@ celsorussomanno: 0.42
 
 **Roadmap**
 
+- Bug fixes for special characters in query term
 - Streamer: continuously report based on input tweets updating the terminal screen.
 - Streamer: set max timeout to wait before generating reports

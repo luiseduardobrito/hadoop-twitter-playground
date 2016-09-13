@@ -1,12 +1,11 @@
 mc855-2s2016-unicamp
 ====================
 
-Simple project for Twitter trend monitoring for São Paulo 2016 mayor elections.
+Simple project for Twitter trend monitoring for São Paulo 2016 mayor elections. 
 
-*Authors*
-- Luis Brito <luiseduardobrito.github.com>
+It was designed to run over Hadoop's MapReduce, but can the executed locally with the shell scripts provided below.
 
-*Installation*
+**Installation**
 
 Clone the repository using git then install its requirements:
 ```sh
@@ -14,7 +13,7 @@ cd mc855-2s2016/
 pip install
 ```
 
-*Running the report*
+**Running the reporters locally**
 
 To start the crawler reporter:
 ```sh
@@ -27,7 +26,12 @@ The start the streaming reporter:
 ./run-streamer <term> <wait_for_count> [candidates.json]
 ```
 
-*Roadmap*
+**Running the reporters using Hadoop**
+
+// TODO
+
+
+**Roadmap**
 
 - Streamer: continuously report based on input tweets updating the terminal screen.
 - Streamer: set max timeout to wait before generating reports

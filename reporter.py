@@ -1,12 +1,21 @@
 #!/usr/bin/env python
+import json
+import re
 import sys
-from pprint import pprint
+from unicodedata import normalize
 
-current_word = None
-current_count = 0
+data = None
 word = None
+total = 0
+d = {}
 
-d = {"jdoriajr": 0, "celsorussomanno": 0}
+# Read candidates file
+with open('./input/sao-paulo-sp.json') as data_file:
+    data = json.load(data_file)
+
+for cand in data:
+    s = re.sub(r'([^\s\w]|_)+', '', normalize('NFKD', cand["screen"]))
+    d[s] = 0
 
 # input comes from STDIN
 for line in sys.stdin:
@@ -33,10 +42,10 @@ for line in sys.stdin:
     if word in d:
         d[word] += count
 
-total = 0
-
+# Calculate total value
 for key, value in d.iteritems():
     total += float(value)
 
+# Calculate proportions
 for key, value in d.iteritems():
     print key + ': ' + str("%0.2f" % float(value / total))

@@ -16,10 +16,11 @@ asecret = os.environ["TWITTER_ACCESS_TOKEN_SECRET"]
 
 
 class Crawler():
+
     # Initialize the crawler
     def __init__(self, api, q):
         self.query = q
-        self.max = 100
+        self.max = 1000
         self.count = 0
 
         for tweet in self.limit_handled(tweepy.Cursor(api.search, q=self.query).items(self.max)):
@@ -51,6 +52,8 @@ api = tweepy.API(auth)
 with open('./input/sao-paulo-sp.json') as data_file:
     data = json.load(data_file)
 
-# Iterate over input candidates
-for cand in data:
-    Crawler(api, cand["name"] + " OR " + cand["screen"])
+for q in ["educacao"]:
+
+    # Iterate over input candidates
+    for cand in data:
+        Crawler(api, q + " to:" + cand["screen"] + " since:2016-07-01")

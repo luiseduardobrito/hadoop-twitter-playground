@@ -6,12 +6,14 @@ import tweepy
 from tweepy import OAuthHandler
 
 # Get query from command line
-if len(sys.argv) < 2:
+if len(sys.argv) < 3:
     print "No query term specified."
-    print "Usage: ./crawler.py <term>"
+    print "Usage: ./crawler.py <term> <usa|sao-paulo>"
     sys.exit(1)
 
+# Get script arguments
 q = sys.argv[1]
+cand_data = sys.argv[2]
 
 # Consumer key, consumer secret, access token, access secret.
 ckey = os.environ["TWITTER_CONSUMER_KEY"]
@@ -20,15 +22,15 @@ atoken = os.environ["TWITTER_ACCESS_TOKEN"]
 asecret = os.environ["TWITTER_ACCESS_TOKEN_SECRET"]
 
 # Read candidates file
-with open('./input/sao-paulo-sp.json') as data_file:
+with open('./input/' + cand_data + '.json') as data_file:
     data = json.load(data_file)
 
-class Crawler():
 
+class Crawler():
     # Initialize the crawler
     def __init__(self, api, q):
         self.query = q
-        self.max = 10000
+        self.max = 500
         self.count = 0
 
         for tweet in self.limit_handled(tweepy.Cursor(api.search, q=self.query).items(self.max)):

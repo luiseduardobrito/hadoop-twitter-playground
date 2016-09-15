@@ -4,13 +4,21 @@ import re
 import sys
 from unicodedata import normalize
 
-data = None
 word = None
 total = 0
 d = {}
 
+# Get query from command line
+if len(sys.argv) < 2:
+    print "No query term specified."
+    print "Usage: ./reporter.py <usa|sao-paulo>"
+    sys.exit(1)
+
+# Get script arguments
+cand_data = sys.argv[1]
+
 # Read candidates file
-with open('./input/sao-paulo-sp.json') as data_file:
+with open('./input/' + cand_data + '.json') as data_file:
     data = json.load(data_file)
 
 for cand in data:
@@ -46,6 +54,11 @@ for line in sys.stdin:
 for key, value in d.iteritems():
     total += float(value)
 
-# Calculate proportions
-for key, value in d.iteritems():
-    print key + ': ' + str("%0.2f" % float(value / total))
+if total > 0:
+
+    # Calculate proportions
+    for key, value in d.iteritems():
+        print key + ': ' + str("%0.2f" % float(value / total))
+
+else:
+    print "No results to report"

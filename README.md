@@ -53,6 +53,14 @@ jdoriajr: 0.26
 celsorussomanno: 0.42
 ```
 
+**References**
+
+- [Yahoo! Hadoop Tutorial](https://developer.yahoo.com/hadoop/tutorial/)
+- [Writing an hadoop mapreduce program in python](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python)
+- [Twitter API Tutorial](https://www.codecademy.com/en/tracks/twitter)
+- [hardikvasa/hadoop-mapreduce-examples-python](https://github.com/hardikvasa/hadoop-mapreduce-examples-python)
+
+
 **Roadmap**
 
 - Bug fixes for special characters in query term

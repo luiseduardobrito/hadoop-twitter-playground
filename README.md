@@ -1,7 +1,7 @@
-mc855-2s2016-unicamp
-====================
+hadoop-twitter-playground
+=========================
 
-Simple project for Twitter trend monitoring for São Paulo 2016 mayor elections. 
+Simple project for Twitter trend monitoring for São Paulo 2016 mayor elections. Implemented during the [MC855 (2s2016)](www.ic.unicamp.br/~islene/2s2016-projetos/) course in the [Universidade Estadual de Campinas (UNICAMP)](http://www.ic.unicamp.br/).
 
 It was designed to run over Hadoop's MapReduce, but can the executed locally with the shell scripts provided below.
 
@@ -52,11 +52,6 @@ luizaerundina: 0.21
 jdoriajr: 0.26
 celsorussomanno: 0.42
 ```
-
-**Running the reporters using Hadoop**
-
-// TODO
-
 
 **Roadmap**
 
